@@ -34,12 +34,12 @@ async function getDrupalPodRepo() {
   try {
     return new Promise((resolve) => {
       chrome.storage.sync.get(['drupalpod_repo'], (options) => {
-        resolve(options.drupalpod_repo || 'https://git.drupalcode.org/project/drupalpod');
+        resolve(options.drupalpod_repo || 'https://git.drupalcode.org/issue/drupalpod-3504317/-/tree/drupalforge');
       });
     });
   } catch (error) {
     console.error('Error getting DrupalPod repo:', error);
-    return 'https://git.drupalcode.org/project/drupalpod';
+    return 'https://git.drupalcode.org/issue/drupalpod-3504317/-/tree/drupalforge';
   }
 }
 
@@ -52,5 +52,5 @@ function setDrupalPodRepo(url) {
 // Set default when extension is installed
 chrome.runtime.onInstalled.addListener(() => {
   debugLog('Extension installed, setting default repository');
-  setDrupalPodRepo('https://git.drupalcode.org/project/drupalpod');
+  setDrupalPodRepo('https://git.drupalcode.org/issue/drupalpod-3504317/-/tree/drupalforge');
 });

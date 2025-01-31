@@ -362,8 +362,8 @@ document.addEventListener('DOMContentLoaded', function() {
      * Opens Gitpod with the appropriate configuration
      */
     function openDevEnv() {
-        // Build URL structure to open Gitpod
-        const baseUrl = 'https://gitpod.io/#';
+        // Build URL structure to open Drupal Forge.
+        const baseUrl = 'https://dev.drupalforge.org/drupalpod/new/#';
         
         const projectNameElement = document.getElementById('project-name');
         const issueForkElement = document.getElementById('issue-fork');
@@ -387,7 +387,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Get repo URL from storage, with fallback to default URL
         chrome.storage.sync.get(['drupalpod_repo'], (options) => {
-            const envRepo = options.drupalpod_repo || 'https://git.drupalcode.org/project/drupalpod';
+            const envRepo = options.drupalpod_repo || 'https://git.drupalcode.org/issue/drupalpod-3504317/-/tree/drupalforge';
             
             // Validate URL parameters
             if (!projectName || !projectType || !moduleVersion) {
